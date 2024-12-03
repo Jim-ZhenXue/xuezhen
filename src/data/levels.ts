@@ -6,7 +6,7 @@ export interface Level {
 export const levels: Level[] = [
   {
     targetAngle: 90,
-    instruction: "让我们从最基本的直角开始！试着旋转蓝线，使其形成90度角。"
+    instruction: "让我们从最基本的直角开始！试着旋转红线，使其形成90度角。"
   },
   {
     targetAngle: 45,
