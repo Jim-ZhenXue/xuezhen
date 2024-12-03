@@ -125,7 +125,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
             outerRadius={radius}
             angle={sectorAngles.angle}
             rotation={sectorAngles.startAngle}
-            fill="#2196F3"
+            fill="#EF4444"
             opacity={0.1}
           />
         )}
@@ -151,7 +151,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
             centerX + radius * Math.cos((angle - 90) * Math.PI / 180),
             centerY + radius * Math.sin((angle - 90) * Math.PI / 180)
           ]}
-          stroke={isCorrect ? "#4CAF50" : "#2196F3"}
+          stroke={isCorrect ? "#4CAF50" : "#EF4444"}
           strokeWidth={4}
         />
 
@@ -159,7 +159,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
         {hasStartedRotating && angle > 0 && (
           <Path
             data={generateArrowPath()}
-            stroke={isCorrect ? "#4CAF50" : "#2196F3"}
+            stroke={isCorrect ? "#4CAF50" : "#EF4444"}
             strokeWidth={2}
             fill="transparent"
           />
@@ -180,12 +180,12 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
           />
           <Circle
             radius={12}
-            fill={isCorrect ? "#4CAF50" : "#2196F3"}
+            fill={isCorrect ? "#4CAF50" : "#EF4444"}
             opacity={0.2}
           />
           <Circle
             radius={8}
-            fill={isCorrect ? "#4CAF50" : "#2196F3"}
+            fill={isCorrect ? "#4CAF50" : "#EF4444"}
           />
         </Group>
 
