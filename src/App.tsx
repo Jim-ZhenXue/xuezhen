@@ -16,7 +16,6 @@ function App() {
     isGameComplete,
     handleAngleChange,
     nextLevel,
-    restartGame,
   } = useAngleGame();
 
   const [showFinalScore, setShowFinalScore] = useState(false);
