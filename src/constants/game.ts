@@ -3,7 +3,7 @@ import { GameConfig, CanvasConfig } from '../types/game';
 export const GAME_CONFIG: GameConfig = {
   pointsPerLevel: 20,
   angleTolerance: 5,
-  angleAdjustment: 5
+  angleAdjustment: 1
 } as const;
 
 export const CANVAS_CONFIG: CanvasConfig = {

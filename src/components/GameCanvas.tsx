@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stage, Layer, Line, Circle, Text, Group, Arc } from 'react-konva';
+import { Stage, Layer, Line, Circle, Text, Group, Arc, Path } from 'react-konva';
 import { KonvaEventObject } from 'konva/lib/Node';
 import { CANVAS_CONFIG } from '../constants/game';
 
@@ -50,6 +50,36 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
       angle: ((end - start + 360) % 360) // Ensure positive angle
     };
   })();
+
+  // 生成角度箭头路径
+  const generateArrowPath = () => {
+    const arrowRadius = radius * 0.4; // 箭头弧的半径
+    const startAngle = -90 * (Math.PI / 180); // 起始角度（12点钟方向）
+    const endAngle = (angle - 90) * (Math.PI / 180); // 结束角度
+    
+    // 计算弧的起点和终点
+    const startX = centerX + arrowRadius * Math.cos(startAngle);
+    const startY = centerY + arrowRadius * Math.sin(startAngle);
+    const endX = centerX + arrowRadius * Math.cos(endAngle);
+    const endY = centerY + arrowRadius * Math.sin(endAngle);
+    
+    // 计算箭头点
+    const arrowSize = 10;
+    
+    // 计算垂直于半径的方向
+    // 箭头方向应该垂直于半径，即切线方向
+    const tangentAngle = endAngle - Math.PI / 2; // 切线角度（垂直于半径）
+    
+    // 计算箭头的两个点
+    const arrowX1 = endX + arrowSize * Math.cos(tangentAngle - Math.PI / 6);
+    const arrowY1 = endY + arrowSize * Math.sin(tangentAngle - Math.PI / 6);
+    const arrowX2 = endX + arrowSize * Math.cos(tangentAngle + Math.PI / 6);
+    const arrowY2 = endY + arrowSize * Math.sin(tangentAngle + Math.PI / 6);
+    
+    // 生成SVG路径
+    const largeArcFlag = sectorAngles.angle > 180 ? 1 : 0;
+    return `M ${startX} ${startY} A ${arrowRadius} ${arrowRadius} 0 ${largeArcFlag} 1 ${endX} ${endY} L ${arrowX1} ${arrowY1} M ${endX} ${endY} L ${arrowX2} ${arrowY2}`;
+  };
 
   const ticks = Array.from({ length: 36 }, (_, i) => {
     const tickAngle = i * 10;
@@ -124,6 +154,16 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
           stroke={isCorrect ? "#4CAF50" : "#2196F3"}
           strokeWidth={4}
         />
+
+        {/* Angle arrow */}
+        {hasStartedRotating && angle > 0 && (
+          <Path
+            data={generateArrowPath()}
+            stroke={isCorrect ? "#4CAF50" : "#2196F3"}
+            strokeWidth={2}
+            fill="transparent"
+          />
+        )}
 
         {/* Draggable handle */}
         <Group
