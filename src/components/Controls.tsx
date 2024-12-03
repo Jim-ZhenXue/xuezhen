@@ -20,17 +20,17 @@ export const Controls: React.FC<ControlsProps> = ({
   level
 }) => {
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="flex items-center gap-4">
+    <div className="flex flex-col items-center gap-1.5">
+      <div className="flex items-center gap-3">
         <button
-          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
+          className="px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors text-sm"
           onClick={() => onAngleChange(angle - GAME_CONFIG.angleAdjustment)}
         >
           ↺ 微调
         </button>
-        <span className="text-xl font-bold min-w-[80px] text-center">{Math.round(angle)}°</span>
+        <span className="text-lg font-bold min-w-[70px] text-center">{Math.round(angle)}°</span>
         <button
-          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
+          className="px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors text-sm"
           onClick={() => onAngleChange(angle + GAME_CONFIG.angleAdjustment)}
         >
           微调 ↻
@@ -41,7 +41,7 @@ export const Controls: React.FC<ControlsProps> = ({
 
       {isCorrect && (
         <button
-          className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-bold transition-colors"
+          className="px-3 py-1.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-bold transition-colors animate-fast-pulse text-sm"
           onClick={onNextLevel}
         >
           下一关 →

@@ -18,17 +18,17 @@ function App() {
   } = useAngleGame();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-purple-100 p-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6">
-        <h1 className="text-3xl font-bold text-center text-purple-600 mb-6">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-purple-100 p-2">
+      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-3">
+        <h1 className="text-xl font-bold text-center text-purple-600 mb-2">
           转转乐角度探险
         </h1>
         
-        <div className="mb-6">
+        <div className="mb-2">
           <Instructions level={levels[currentLevel]} />
         </div>
 
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-2">
           <GameCanvas 
             angle={angle}
             targetAngle={levels[currentLevel].targetAngle}
