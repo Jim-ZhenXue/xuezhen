@@ -21,8 +21,8 @@
   position: absolute;
   top: 90%;
   left: -10%;
-  width: 1.5px;
-  height: 1.5px;
+  width: 3px;
+  height: 0.5px;
   background: #fff;
   border-radius: 50%;
   animation: light-sweep 6s ease-out infinite;
