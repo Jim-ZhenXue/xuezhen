@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 
 interface CelebrationProps {
-  onRestart: () => void;
   onFinish: () => void;
+  score: number;
 }
 
-export const Celebration: React.FC<CelebrationProps> = ({ onRestart, onFinish }) => {
-  const [shown, setShown] = useState(true);
-
+export const Celebration: React.FC<CelebrationProps> = ({ onFinish, score }) => {
   useEffect(() => {
-    const duration = 5 * 1000;
+    const duration = 3 * 1000; // 3秒
     const animationEnd = Date.now() + duration;
 
     const randomInRange = (min: number, max: number) => {
@@ -67,12 +65,16 @@ export const Celebration: React.FC<CelebrationProps> = ({ onRestart, onFinish })
 
     const starInterval = setInterval(addStars, 500);
 
+    // 3秒后自动跳转
+    const timer = setTimeout(() => {
+      onFinish();
+    }, duration);
+
     return () => {
       clearInterval(starInterval);
+      clearTimeout(timer);
     };
-  }, []);
-
-  if (!shown) return null;
+  }, [onFinish]);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
@@ -82,28 +84,8 @@ export const Celebration: React.FC<CelebrationProps> = ({ onRestart, onFinish })
       <div className="bg-white bg-opacity-90 p-8 rounded-xl text-center relative z-10 shadow-2xl">
         <h2 className="text-4xl font-bold mb-6 text-purple-600">🎉 恭喜通关！</h2>
         <p className="text-2xl mb-8">
-          你的最终得分：<span className="font-bold text-green-600">100</span> 分
+          你的最终得分：<span className="font-bold text-green-600">{score}</span> 分
         </p>
-        <div className="flex gap-6 justify-center">
-          <button
-            onClick={() => {
-              setShown(false);
-              onFinish();
-            }}
-            className="px-8 py-4 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-bold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          >
-            完成
-          </button>
-          <button
-            onClick={() => {
-              setShown(false);
-              onRestart();
-            }}
-            className="px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-bold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          >
-            再玩一次
-          </button>
-        </div>
       </div>
     </div>
   );

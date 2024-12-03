@@ -60,8 +60,8 @@ function App() {
 
       {isGameComplete && (
         <Celebration 
-          onRestart={restartGame}
           onFinish={() => setShowFinalScore(true)}
+          score={score}
         />
       )}
     </div>
