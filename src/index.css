@@ -25,7 +25,7 @@
   height: 0.5px;
   background: #fff;
   border-radius: 1px;
-  animation: light-sweep 3s ease-out infinite;
+  animation: light-sweep 1s ease-out infinite;
   box-shadow: 
     0 0 2px 0.5px #fff,
     0 0 4px 1px #fff,
