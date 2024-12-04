@@ -25,7 +25,7 @@
   height: 0.5px;
   background: #fff;
   border-radius: 1px;
-  animation: light-sweep 1.5s ease-out infinite;
+  animation: light-sweep 4.5s ease-out infinite;
   animation-delay: 1.5s;
   box-shadow: 
     0 0 2px 0.5px #fff,
@@ -49,11 +49,16 @@
     opacity: 1;
     transform: translateY(-50%) scaleX(1.2);
   }
-  40% {
+  20% {
     opacity: 1;
     transform: translateY(-50%) scaleX(1.2);
   }
-  42% {
+  22% {
+    left: 105%;
+    opacity: 0;
+    transform: translateY(-50%) scaleX(0.8);
+  }
+  89% {
     left: 105%;
     opacity: 0;
     transform: translateY(-50%) scaleX(0.8);
