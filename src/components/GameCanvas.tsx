@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stage, Layer, Line, Circle, Text, Group, Arc, Path } from 'react-konva';
+import { Stage, Layer, Line, Circle, Group, Arc, Path } from 'react-konva';
 import { KonvaEventObject } from 'konva/lib/Node';
 import { CANVAS_CONFIG } from '../constants/game';
 
@@ -195,15 +195,6 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({
           y={centerY}
           radius={5}
           fill="#666"
-        />
-
-        {/* Angle text */}
-        <Text
-          x={centerX - 20}
-          y={centerY + radius + 20}
-          text={`${Math.round(angle)}°`}
-          fontSize={20}
-          fill="#333"
         />
       </Layer>
     </Stage>
