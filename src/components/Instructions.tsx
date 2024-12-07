@@ -6,10 +6,9 @@ interface InstructionsProps {
 }
 
 export const Instructions: React.FC<InstructionsProps> = ({ level }) => {
-  const instruction = level.instruction.replace(
-    /直角/g,
-    '<span class="animate-gradient">直角</span>'
-  );
+  const instruction = level.instruction
+    .replace(/直角/g, '<span class="animate-gradient">直角</span>')
+    .replace(/(\d+)度角/g, '<span class="animate-gradient">$1度角</span>');
 
   return (
     <div className="bg-yellow-50 p-3 rounded-lg">
