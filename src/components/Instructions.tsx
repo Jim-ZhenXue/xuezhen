@@ -7,8 +7,11 @@ interface InstructionsProps {
 
 export const Instructions: React.FC<InstructionsProps> = ({ level }) => {
   const instruction = level.instruction
-    .replace(/直角/g, '<span class="animate-gradient">直角</span>')
-    .replace(/(\d+)度角/g, '<span class="animate-gradient">$1度角</span>');
+  .replace(/直角/g, '<span class="animate-gradient">直角</span>')
+  .replace(/平角/g, '<span class="animate-gradient">平角</span>')
+  .replace(/优角/g, '<span class="animate-gradient">优角</span>')
+  .replace(/周角/g, '<span class="animate-gradient">周角</span>')
+  .replace(/(\d+)度角/g, '<span class="animate-gradient">$1度角</span>');
 
   return (
     <div className="bg-yellow-50 p-3 rounded-lg">
