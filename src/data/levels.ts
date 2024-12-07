@@ -6,7 +6,7 @@ export interface Level {
 export const levels: Level[] = [
   {
     targetAngle: 90,
-    instruction: '让我们从最常见的角<span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600">"直角"</span>开始！试着旋转红线，使其形成90度角。'
+    instruction: "让我们从最常见的角<span class='bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600'>直角</span>开始！试着旋转红线，使其形成90度角。"
   },
   {
     targetAngle: 45,
