@@ -6,10 +6,15 @@ interface InstructionsProps {
 }
 
 export const Instructions: React.FC<InstructionsProps> = ({ level }) => {
+  const instruction = level.instruction.replace(
+    /直角/g,
+    '<span class="text-blue-600 font-medium">直角</span>'
+  );
+
   return (
     <div className="bg-yellow-50 p-3 rounded-lg">
       <h2 className="text-lg font-bold mb-2">任务说明</h2>
-      <p>{level.instruction}</p>
+      <p dangerouslySetInnerHTML={{ __html: instruction }}></p>
       <p className="mt-2 text-sm text-gray-600">
         提示：拖动红色圆点或使用按钮调整角度，使红线与灰线重合。当重合的时候，红线就会变成绿色
       </p>
