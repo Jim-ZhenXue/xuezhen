@@ -1,11 +1,4 @@
-import React from 'react';
-import { Level } from '../data/levels';
-
-interface InstructionsProps {
-  level: Level;
-}
-
-export const Instructions: React.FC<InstructionsProps> = ({ level }) => {
+export const Instructions: React.FC = () => {
   return (
     <div className="bg-yellow-50 p-3 rounded-lg">
       <h2 className="text-lg font-bold mb-2">任务说明</h2>
