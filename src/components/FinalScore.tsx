@@ -18,7 +18,7 @@ export const FinalScore: React.FC = () => {
           <div className="w-24 h-24 mb-8 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl animate-logo-pulse"></div>
             <div className="absolute inset-2 bg-black rounded-lg"></div>
-            <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-blue-500 tech-font">链</div>
+            <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-blue-500 tech-font">X</div>
           </div>
           <div className="text-center relative">
             <h1 className="text-5xl font-bold tracking-wider company-text tech-font relative overflow-hidden">
