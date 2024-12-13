@@ -23,7 +23,7 @@ export const FinalScore: React.FC = () => {
           <div className="text-center relative">
             <h1 className="text-5xl font-bold tracking-wider company-text tech-font relative overflow-hidden">
               <span className="relative inline-block">
-                xuezhen
+                xuezhenyabo
                 <div className="light-beam"></div>
               </span>
             </h1>
